@@ -23,7 +23,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         textView = findViewById(R.id.textView)
-        getJoke()
+
+        //on clicking this button function to get the coordinates will be called
+        val yesButton = findViewById<Button>(R.id.yesButton)
+        val noButton = findViewById<Button>(R.id.noButton)
+
+        yesButton.setOnClickListener {
+            //function to find the coordinates of the last location
+            textView = findViewById(R.id.jokeView)
+            getJoke()
+        }
+
+        noButton.setOnClickListener {
+            //function to find the coordinates of the last location
+            textView = findViewById(R.id.papyrus)
+        }
 
     }
 
