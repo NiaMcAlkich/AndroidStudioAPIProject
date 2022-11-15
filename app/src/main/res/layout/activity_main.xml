@@ -2,24 +2,78 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_width="11000"
+    android:layout_height="1000"
+    tools:context=".MainActivity"
+    android:background="@drawable/sans"
+    >
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="comic_sans"
         android:text="Wanna hear a joke?"
         android:textColor="#F6F8F5"
         android:textSize="34dp"
         android:textStyle="bold" />
 
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_below="@+id/textView"
+        android:fontFamily="sans-serif-black"
+        android:text="Get wind info here"
+        android:textColor="#F6F8F5"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_below="@+id/textView2"
+        android:fontFamily="sans-serif-black"
+        android:text="Get Sea Level Pressure"
+        android:textColor="#F6F8F5"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btVar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:background="@drawable/btn_bg6"
+        android:padding="10dp"
+        android:text="Get Weather"
+        android:textSize="20dp" />
+
+    <font-family xmlns:android="http://schemas.android.com/apk/res/android">
+        <font
+            android:fontStyle="normal"
+            android:fontWeight="400"
+            android:font="@font/comic_sans" />
+        <font
+            android:fontStyle="normal"
+            android:fontWeight="400"
+            android:font="@font/papyrus" />
+
+
+    </font-family>
 
 </RelativeLayout>
