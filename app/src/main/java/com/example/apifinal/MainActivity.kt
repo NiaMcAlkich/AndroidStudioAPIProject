@@ -22,6 +22,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val sharedPref = getSharedPreferences("API Counter", Context.MODE_PRIVATE)
+        val default = 0
+        var apiCount = sharedPref.getInt("API Counter", default)
+
+
+        with (sharedPref.edit()) {
+            putInt("API Counter", apiCount)
+            apply()
+        }
+
+        Toast.makeText(this, "The API was called " + apiCount + " times!", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "This counts the calls");
+
         textView = findViewById(R.id.textView)
         getJoke()
 
@@ -40,6 +53,11 @@ class MainActivity : AppCompatActivity() {
 
                 //get the JSON object
                 val obj = JSONObject(response)
+
+                //Here is where it will count the calls to the API
+                apiCount += 1
+
+                //This is the parsed esponse
                 val parsedJoke = obj.getString("joke")
 
                 //Ignore these they are from failed tries
@@ -57,4 +75,5 @@ class MainActivity : AppCompatActivity() {
             Response.ErrorListener { textView!!.text = "API call didn't work or didn't parse!" })
         queue.add(stringReq)
     }
+
 }
