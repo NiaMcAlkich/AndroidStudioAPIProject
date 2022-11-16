@@ -90,4 +90,12 @@ class MainActivity : AppCompatActivity() {
         queue.add(stringReq)
     }
 
+    val refreshButton = findViewById<Button>(R.id.refresh)
+
+    refreshButton.setOnClickListener {
+        //function to find the coordinates of the last location
+        textView = findViewById(R.id.jokeView)
+        getJoke()
+    }
+
 }
