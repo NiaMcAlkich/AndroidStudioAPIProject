@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:context=".MainActivity"
-    android:background="@color/white"
+    tools:context="com.example.apifinal.MainActivity"
+    android:background="#ffffff"
     >
 
 
@@ -22,8 +21,8 @@
         android:id="@+id/yesButton"
         android:textSize="40dp"
         android:padding="35dp"
-        android:background="@color/black"
-        android:fontFamily="sans"/>
+        android:background="#000000"
+        android:fontFamily="@font/sans"/>
 
     <Button
         android:clickable="true"
@@ -37,8 +36,8 @@
         android:layout_marginRight="40dp"
         android:textSize="40dp"
         android:padding="35dp"
-        android:background="@color/black"
-        android:fontFamily="sans"/>
+        android:background="#000000"
+        android:fontFamily="@font/sans"/>
 
     <Button
         android:clickable="true"
@@ -51,8 +50,8 @@
         android:id="@+id/refreshButton"
         android:textSize="40dp"
         android:padding="35dp"
-        android:background="@color/black"
-        android:fontFamily="sans"/>
+        android:background="#000000"
+        android:fontFamily="@font/sans"/>
 
     <TextView
         android:id="@+id/textView"
@@ -66,8 +65,24 @@
         android:text="Wanna hear a joke?"
         android:textColor="#F6F8F5"
         android:textSize="34dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
+
+    <TextView
+        android:id="@+id/jokeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1000dp"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="sans-serif-black"
+        android:text=""
+        android:drawableBottom="@drawable/sans"
+        android:textColor="#000000"
+        android:textSize="34dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/papyrus"
@@ -85,20 +100,4 @@
         android:textStyle="bold"
         />
 
-    <TextView
-        android:id="@+id/jokeView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1000dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif-black"
-        android:text=""
-        android:drawableBottom="@drawable/sans"
-        
-        android:textColor="#000000"
-        android:textSize="34dp"
-        android:textStyle="bold" />
-
-</RelativeLayout>
+</LinearLayout>
