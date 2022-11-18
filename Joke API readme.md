@@ -16,7 +16,7 @@ was funny enough. this will call the joke function again and display the same te
 ## Known bugs/malfunctions:
 So far I'm not sure why but I am missing some files that got lost on the 1st merge so it won't work/let me test it so to run it you will have to pull 
 the project files into a working project and run it.
-Another thing so far is the textviews all try to run at the same time instead of when they're called.
+Another thing so far is the text view in the linear layout doesn't change to the other text views when they are called and when you click buttons they don't call the textviews at all.
 It gives rendering errors and errors when running it so again you need to pull it into a working project.
 
 ## Required tech.:
