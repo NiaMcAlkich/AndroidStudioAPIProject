@@ -1,6 +1,6 @@
 package com.example.apifinal
 
-import android.os.Bundle
+android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.toolbox.StringRequest
@@ -8,15 +8,23 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import android.R.id
+import android.content.ContentValues.TAG
+import android.content.Context
+import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import com.android.volley.*
-
-
+import com.example.apifinal.R
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var textView: TextView
+    private lateinit var jokeView: TextView
+    private lateinit var papyrusView: TextView
+    private lateinit var yesButon: android.widget.Button
+    private lateinit var noButon: android.widget.Button
+    private lateinit var refreshButon: android.widget.Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +51,20 @@ class MainActivity : AppCompatActivity() {
 
         yesButton.setOnClickListener {
             //function to find the coordinates of the last location
-            textView = findViewById(R.id.jokeView)
+            jokeView = findViewById(R.id.jokeView)
             getJoke()
         }
 
         noButton.setOnClickListener {
             //function to find the coordinates of the last location
-            textView = findViewById(R.id.papyrus)
+            papyrusView = findViewById(R.id.papyrus)
+        }
+
+
+        refreshButton.setOnClickListener {
+            //function to find the coordinates of the last location
+            jokeView = findViewById(R.id.jokeView)
+            getJoke()
         }
 
     }
@@ -71,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                 //Here is where it will count the calls to the API
                 apiCount += 1
 
-                //This is the parsed esponse
+                //This is the parsed response
                 val parsedJoke = obj.getString("joke")
 
                 //Ignore these they are from failed tries
@@ -81,21 +96,13 @@ class MainActivity : AppCompatActivity() {
                 //get the JSON object from the array at index position 0
                 //val obj2 = arr.getJSONObject(0)
 
-                textView.text =
+                jokeView.text =
                     parsedJoke
 
             },
             //In case of any error
             Response.ErrorListener { textView!!.text = "API call didn't work or didn't parse!" })
         queue.add(stringReq)
-    }
-
-    val refreshButton = findViewById<Button>(R.id.refresh)
-
-    refreshButton.setOnClickListener {
-        //function to find the coordinates of the last location
-        textView = findViewById(R.id.jokeView)
-        getJoke()
     }
 
 }
