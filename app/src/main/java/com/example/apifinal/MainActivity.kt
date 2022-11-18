@@ -1,38 +1,34 @@
 package com.example.apifinal
 
-android.os.Bundle
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONObject
-import android.R.id
 import android.content.ContentValues.TAG
-import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.*
-import com.example.apifinal.R
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var textView: TextView
+    private lateinit var yesButton: Button
+    private lateinit var noButton: Button
     private lateinit var jokeView: TextView
     private lateinit var papyrusView: TextView
-    private lateinit var yesButon: android.widget.Button
-    private lateinit var noButon: android.widget.Button
-    private lateinit var refreshButon: android.widget.Button
+    private lateinit var refreshButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sharedPref = getSharedPreferences("API Counter", Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("API Counter", MODE_PRIVATE)
         val default = 0
-        var apiCount = sharedPref.getInt("API Counter", default)
+        val apiCount = sharedPref.getInt("API Counter", default)
 
 
         with (sharedPref.edit()) {
@@ -40,36 +36,29 @@ class MainActivity : AppCompatActivity() {
             apply()
         }
 
-        Toast.makeText(this, "The API was called " + apiCount + " times!", Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "This counts the calls");
+        Toast.makeText(this, "The API was called $apiCount times!", Toast.LENGTH_SHORT).show()
+        Log.d(TAG, "This counts the calls")
 
         textView = findViewById(R.id.textView)
 
-        //on clicking this button function to get the coordinates will be called
-        val yesButton = findViewById<Button>(R.id.yesButton)
-        val noButton = findViewById<Button>(R.id.noButton)
+        yesButton = findViewById(R.id.yesButton)
+        noButton = findViewById(R.id.noButton)
 
-        yesButton.setOnClickListener {
-            //function to find the coordinates of the last location
+        yesButton.setOnClickListener{
+
             jokeView = findViewById(R.id.jokeView)
-            getJoke()
+            getJoke(apiCount)
         }
 
         noButton.setOnClickListener {
-            //function to find the coordinates of the last location
+
             papyrusView = findViewById(R.id.papyrus)
         }
 
 
-        refreshButton.setOnClickListener {
-            //function to find the coordinates of the last location
-            jokeView = findViewById(R.id.jokeView)
-            getJoke()
-        }
-
     }
 
-    private fun getJoke() {
+    private fun getJoke(apiCount: Int) {
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
         val joke: String = "https://v2.jokeapi.dev/joke/Any?safe-mode/format=json&safe-mode&type=single"
@@ -84,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 val obj = JSONObject(response)
 
                 //Here is where it will count the calls to the API
-                apiCount += 1
+                apiCount + 1
 
                 //This is the parsed response
                 val parsedJoke = obj.getString("joke")
@@ -101,8 +90,14 @@ class MainActivity : AppCompatActivity() {
 
             },
             //In case of any error
-            Response.ErrorListener { textView!!.text = "API call didn't work or didn't parse!" })
+            Response.ErrorListener { jokeView.text = "API call didn't work or didn't parse!" })
         queue.add(stringReq)
+
+        refreshButton = findViewById(R.id.refreshButton)
+
+        refreshButton.setOnClickListener {
+            getJoke(apiCount)
+        }
     }
 
 }
