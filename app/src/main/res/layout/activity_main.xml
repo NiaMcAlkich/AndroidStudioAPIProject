@@ -1,103 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.apifinal.MainActivity"
     android:background="#ffffff"
-    >
-
-
-
-    <Button
-        android:clickable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Yes!"
-        android:layout_below="@id/textView"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="30dp"
-        android:id="@+id/yesButton"
-        android:textSize="40dp"
-        android:padding="35dp"
-        android:background="#000000"
-        android:fontFamily="@font/sans"/>
-
-    <Button
-        android:clickable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No!"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/textView"
-        android:layout_toRightOf="@id/yesButton"
-        android:id="@+id/noButton"
-        android:layout_marginRight="40dp"
-        android:textSize="40dp"
-        android:padding="35dp"
-        android:background="#000000"
-        android:fontFamily="@font/sans"/>
-
-    <Button
-        android:clickable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refresh Joke"
-        android:layout_below="@id/jokeView"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="30dp"
-        android:id="@+id/refreshButton"
-        android:textSize="40dp"
-        android:padding="35dp"
-        android:background="#000000"
-        android:fontFamily="@font/sans"/>
+    android:orientation="vertical"
+    tools:context="com.example.apifinal.MainActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_width="531dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
+        android:baselineAligned="false"
         android:fontFamily="sans-serif-black"
         android:text="Wanna hear a joke?"
-        android:textColor="#F6F8F5"
-        android:textSize="34dp"
-        android:textStyle="bold"
-        />
-
-
-    <TextView
-        android:id="@+id/jokeView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1000dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif-black"
-        android:text=""
-        android:drawableBottom="@drawable/sans"
         android:textColor="#000000"
         android:textSize="34dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/papyrus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1000dp"
-        android:layout_marginBottom="50dp"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:src="@drawable/sans"></ImageView>
+
+    <Button
+        android:id="@+id/yesButton"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@id/textView"
+        android:background="#000000"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="sans-serif-black"
-        android:text="THEN WHY ARE YOU HERE PEASANT!"
-        android:drawableBottom="@drawable/papyrus"
+        android:padding="30dp"
+        android:text="Yes!"
+        android:textColor="@color/white"
+        android:textSize="40dp" />
+
+
+    <Button
+        android:id="@+id/noButton"
+        android:layout_width="match_parent"
+        android:layout_height="143dp"
+        android:background="#000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="sans-serif-black"
+        android:text="No!"
+        android:textColor="@color/white"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/jokeView"
+        android:layout_width="match_parent"
+        android:layout_height="682dp"
+        android:baselineAligned="false"
+        android:fontFamily="sans-serif-black"
+        android:text=""
         android:textColor="#000000"
         android:textSize="34dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:layout_below="@id/jokeView"
+        android:background="#000000"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:padding="35dp"
+        android:text="Refresh Joke"
+        android:textColor="@color/white"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/papyrus"
+        android:layout_width="match_parent"
+        android:layout_height="457dp"
+        android:drawableBottom="@drawable/papyrus"
+        android:fontFamily="sans-serif-black"
+        android:text="THEN WHY ARE YOU HERE PEASANT!"
+        android:textColor="#000000"
+        android:textSize="34dp"
+        android:textStyle="bold" />
 
 </LinearLayout>
